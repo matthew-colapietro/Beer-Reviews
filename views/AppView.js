@@ -7,6 +7,7 @@ var AppView = Backbone.View.extend({
 
   initialize: function () {
     this.listenTo(this.model.get('beers'), 'add', this.renderBeer);
+    this.renderBeers();
   },
 
   createBeer: function () {
@@ -18,7 +19,16 @@ var AppView = Backbone.View.extend({
     );
   },
 
-  renderBeer: function (beer) {
-    console.log(beer);
+  renderBeer: function(beer) {
+      var beerView = new BeerView({
+        model: beer
+      });
+      this.$('.beer-list').append(beerView.render().el);
+    },
+
+  renderBeers: function() {
+    this.model.get('beers').each(function(m) {
+      this.renderBeer(m);
+    }, this);
   }
 });

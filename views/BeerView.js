@@ -1,6 +1,6 @@
 var BeerView = Backbone.View.extend({
 
-  className: 'beers',
+  className: 'beer',
 
   template: Handlebars.compile($('#beer-template').html()),
 
