@@ -20,7 +20,7 @@ var BeerView = Backbone.View.extend({
 
   delete: function () {
     this.model.destroy();
-    console.log('destroyed')
+    //console.log('destroyed')
   },
 
   initialize: function() {
